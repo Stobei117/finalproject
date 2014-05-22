@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+///this is a test
 
 
 public class Battle{
@@ -31,6 +31,8 @@ public static void fight(pokemon attacker, pokemon defender){
             System.out.println("You win");
 
         }
+        System.out.println("Attacker HP= " + atkHP);
+        System.out.println("Deffender HP= " + defHP);
     }
 
 
