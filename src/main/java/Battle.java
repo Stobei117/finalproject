@@ -1,3 +1,5 @@
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.Scanner;
 ///this is a test
 
@@ -20,17 +22,45 @@ public class Battle{
             System.out.println("What move would you like to use?");
             System.out.println("1. Tackle");
             System.out.println("2. Growl");
+            System.out.println("3: Instert Move:");
+            System.out.println("4: Instert Move:");
+            System.out.println("5: Use Potion(HP+ 20");
             int move = reader.nextInt();
             if(move == 1){
+                System.out.println("Bulbasaur uses Tackle!");
                 defHP= defHP - 5;
-                //System.out.println(defHP);
             }
-            if(move ==2){
-                defDef = deffender.getdef()- 5;
+            if(move == 2){
+                System.out.println("add move");
             }
-            if(defHP<=0){
+            if(move == 3){
+                System.out.println("add move");
+            }
+            if(move == 4){
+                System.out.println("add move");
+            }
+            if(move == 5){
+                atkHP= atkHP+ 20;
+            }
+
+            ///basic AI
+            if(defHP>0){
+                System.out.println("Oponents Turn:");
+                if(atkHP <=100){
+                    System.out.println("Squirtle uses Tackle");
+                    atkHP = atkHP - 6;
+                }
+            }
+
+
+            ///Check to see if You are dead
+            if(defHP <= 0){
                 System.out.println("You win");
             }
+            if(atkHP <=0){
+                System.out.println("You Loose");
+            }
+
         }
 
 
@@ -62,7 +92,7 @@ public class Battle{
 
 
 
-}
+    }
 
     public static void main(String[] args) {
         Pokemon  attacker = new Pokemon("Bulbasuar","grass",33,10,14,15,11,9,"Tackle","Growl",null,null);
