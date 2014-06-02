@@ -1,7 +1,5 @@
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
 import java.util.Scanner;
-///this is a test
+
 
 public class Battle{
 
@@ -10,8 +8,12 @@ public class Battle{
 
         //Status of Each
         int atkHP = attacker.getHP();
-        double defHP = deffender.getHP();
-        double defDef = deffender.getdef();
+        int defHP = deffender.getHP();
+        int defDef = deffender.getdef();
+        Attack Tackle = new Attack("Tackle",6);
+        Attack growl = new Attack("Growl",0);
+
+
 
 
 
@@ -28,10 +30,13 @@ public class Battle{
             int move = reader.nextInt();
             if(move == 1){
                 System.out.println("Bulbasaur uses Tackle!");
-                defHP= defHP - 5;
+                defHP = defHP- (int)(Tackle.getDmg()-(defDef* .1));
+
             }
             if(move == 2){
-                System.out.println("add move");
+                System.out.println("Bulbasaur uses Growl");
+                atkHP= atkHP -(int)growl.getDmg();
+                defDef = deffender.getdef() - 2;
             }
             if(move == 3){
                 System.out.println("add move");
@@ -42,6 +47,8 @@ public class Battle{
             if(move == 5){
                 atkHP= atkHP+ 20;
             }
+
+
 
             ///basic AI
             if(defHP>0){
@@ -65,44 +72,27 @@ public class Battle{
 
 
 
-//    public static double damage(Pokemon attacker, Pokemon deffender, int baseDmg){
-//        String aType = attacker.getType();
-//        String dType = deffender.getType();
-//        double fdamage = 0;
-//        //grass attacker
-//        if(aType.equalsIgnoreCase("grass")&& dType.equalsIgnoreCase("water") || aType.equalsIgnoreCase("grass")&& dType.equalsIgnoreCase("rock")
-//                || aType.equalsIgnoreCase("grass")&& dType.equalsIgnoreCase("rock")){
-//            return baseDmg+(baseDmg *2) ;}else return baseDmg;
-//
-//        //water attacker
-//        if(aType.equalsIgnoreCase("water")&& dType.equalsIgnoreCase("ground") || aType.equalsIgnoreCase("water")&& dType.equalsIgnoreCase("rock")
-//                || aType.equalsIgnoreCase("water")&& dType.equalsIgnoreCase("fire")){
-//            return baseDmg + (baseDmg *2) ;}else return baseDmg;
-//
-//        //Fire Attacker
-//        if(aType.equalsIgnoreCase("Fire")&& dType.equalsIgnoreCase("bug") || aType.equalsIgnoreCase("fire")&& dType.equalsIgnoreCase("grass")
-//                || aType.equalsIgnoreCase("fire")&& dType.equalsIgnoreCase("ice")){
-//            return baseDmg+(baseDmg *2) ;}else return baseDmg;
-//        //Normal Attacker
-//        if(aType.equalsIgnoreCase("electric")&& dType.equalsIgnoreCase("flying") || aType.equalsIgnoreCase("electric")&& dType.equalsIgnoreCase("water")){
-//            return baseDmg+(baseDmg *2) ;}else return baseDmg;
-//        return fdamage;
-//    }
-
-
-
 
     }
 
+
     public static void main(String[] args) {
         Pokemon  attacker = new Pokemon("Bulbasuar","grass",33,10,14,15,11,9,"Tackle","Growl",null,null);
-        Pokemon defender = new Pokemon("Squritle","water",29,12,13,16,10,10,"Tackle","Leer",null,null);
+        Pokemon defender = new Pokemon("Squritle","water",29,10,13,16,10,10,"Tackle","Leer",null,null);
+        Pokemon Charizard = new Pokemon("Charizard","fire",150,90,95,50,70,70,"Flamethrower","Dragon Breath","Fire Spin","Scorch");
+        Pokemon Mewtwo = new Pokemon("Mewtwo","Psyhic",170,90,150,100,90,50,"Psychic","Recover","Psyskrike","Swift");
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to Javamon");
-        System.out.println("Press 1 to start ");
-        String start = scan.nextLine();
-        if(start.equalsIgnoreCase("1")){
+        System.out.println("Select Your Pokemon");
+        System.out.println("Level 5 Bulbasur vs Level 5 Squritle - Press 1");
+        System.out.println("Level 50 Charizard vs Level 50 Mewtwo - Press 2" );
+
+        int start = scan.nextInt();
+        if(start == 1){
             fight(attacker, defender);
+        }
+        if(start == 2){
+            fight(Charizard,Mewtwo);
         }
     }
 
