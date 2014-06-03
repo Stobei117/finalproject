@@ -1,5 +1,8 @@
 import java.util.Scanner;
-
+/**
+ * Battle
+ * Created by David Hudson on 5/28/14.
+ */
 
 public class Battle{
 
