@@ -22,9 +22,7 @@ public class Attack {
         return dmg;
     }
 
-    public double getStatChange(double defense) {
-        return dmg - defense;
-    }
+
 }
 
 
