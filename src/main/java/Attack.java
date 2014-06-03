@@ -4,10 +4,10 @@
  */
 public class Attack {
     String name;
-    double dmg;
+    int dmg;
 
 
-    public Attack(String nameIn, double dmgIn){
+    public Attack(String nameIn, int dmgIn){
 
         name = nameIn;
         dmg = dmgIn;
@@ -18,7 +18,7 @@ public class Attack {
         return name;
     }
 
-    public double getDmg() {
+    public int getDmg() {
         return dmg;
     }
 
